@@ -3,10 +3,12 @@ import './emploers-list.css';
 const EmploersList = ({data}) => {
 
     const elements = data.map(item => {
-        return <EmploersListItem {...item} />
+        const {id, ...itemProps} = item;
+        return <EmploersListItem key={id} {...itemProps} />
         
         // name={item.name} salary={item.salary}
     })
+
 
     return (
         <ul className="app-list list-group">

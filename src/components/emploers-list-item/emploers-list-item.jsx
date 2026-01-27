@@ -7,10 +7,10 @@ const EmployeesListItem = ({name, salary, increase}) => {
     //     classNames += ' increase'
     // }
 
-  const classes =  increase ? classNames += ' increase' : classNames;
+  const addClassActive =  increase ? classNames += ' increase' : classNames;
 
     return (
-        <li className={classes}>
+        <li className={addClassActive}>
             <span className="list-group-item-label">{name}</span>
             <input type="text" className="list-group-item-input" defaultValue={salary + '$'}/>
             <div className='d-flex justify-content-center align-items-center'>
