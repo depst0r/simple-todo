@@ -10,7 +10,7 @@ class EmploersAddForm extends Component {
         }
     }
 
-onValueChange = (e) => {
+onValueChange = e => {
     this.setState ({
         [e.target.name] : e.target.value,
         [e.target.salary] : e.target.value,
