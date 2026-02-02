@@ -46,18 +46,38 @@ class App extends Component{
         });
     }
 
-    onToggleInscrise = id => {
-        console.log(`Incrise this ${id}`)
+    onToggleProp = (id, prop )=> {
+        this.setState(({data}) => ({
+            data: data.map(item => {
+                if (item.id === id) {
+                    return {
+                        ...item, [prop]: !item[prop]
+                    }
+                }
+                return item
+            })
+        }))
     }
 
-    onToggleRise = id => {
-        console.log(`Rise this ${id}`)
-    }
+    // onToggleRise = id => {
+    //             this.setState(({data}) => ({
+    //         data: data.map(item => {
+    //             if (item.id === id) {
+    //                 return {
+    //                     ...item, rise: !item.rise
+    //                 }
+    //             }
+    //             return item
+    //         })
+    //     }))
+    // }
 
    render () {
+    const employes = this.state.data.length;
+    const increased = this.state.data.filter(item => item.increase).length;
      return (
         <div className="app">
-            <AppInfo/>
+            <AppInfo employes={employes} increased={increased}/>
             <div className="search-panel">
                 <SearchPanel/>
                 <AppFilter/>
@@ -65,8 +85,7 @@ class App extends Component{
             <EmploersList 
             data={this.state.data}
             onDelete={id => this.deleteItem(id)}
-            onToggleInscrise={this.onToggleInscrise}
-            onToggleRise={this.onToggleRise}
+            onToggleProp={this.onToggleProp}
             />
             <EmploersAddForm onAdd={this.addItem} />
         </div>
