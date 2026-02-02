@@ -20,7 +20,7 @@ const EmployeesListItem = props => {
                 <button type="button"
                     className="btn-cookie btn-sm "
                     onClick={onToggleProp}
-                    data-toggle='incrise'
+                    data-toggle='increase'
                     >
                     <i className="fas fa-cookie"></i>
                 </button>
