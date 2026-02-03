@@ -71,7 +71,7 @@ class App extends Component{
     }
 
     onUpdateSearch = term => {
-        this.state ({term})
+        this.setState({term})
     }
 
    render () {
